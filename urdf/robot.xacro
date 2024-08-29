@@ -1,0 +1,114 @@
+<?xml version="1.0" ?>
+<robot name="amr" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find amr)/urdf/materials.xacro" />
+  <xacro:include filename="$(find amr)/urdf/robot.trans" />
+  <xacro:include filename="$(find amr)/urdf/diff_drive_plugin.xacro" />
+  <xacro:include filename="$(find amr)/urdf/lidar_plugin.xacro" />
+
+  <link name="base_link">
+    <inertial>
+      <origin xyz="0.0032536371479730836 1.7087196595133478e-17 0.05193914806588865" rpy="0 0 0"/>
+      <mass value="16.713176720752102"/>
+      <inertia ixx="0.057482" iyy="0.061252" izz="0.108997" ixy="0.0" iyz="0.0" ixz="-0.00207"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find amr)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find amr)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="lidar_1">
+    <inertial>
+      <origin xyz="0.0 0.0 0.010000000000000009" rpy="0 0 0"/>
+      <mass value="0.6042068071016571"/>
+      <inertia ixx="0.000205" iyy="0.000205" izz="0.00037" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0.06 -0.0 -0.105" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find amr)/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin xyz="-0.06 -0.0 -0.105" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find amr)/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="right_wheel_1">
+    <inertial>
+      <origin xyz="9.650038500203382e-18 -0.015000000000000013 6.938893903907228e-18" rpy="0 0 0"/>
+      <mass value="1.8496126748009902"/>
+      <inertia ixx="0.001295" iyy="0.002312" izz="0.001295" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0.0 0.1 -0.05" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find amr)/meshes/right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin xyz="-0.0 0.1 -0.05" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find amr)/meshes/right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_wheel_1">
+    <inertial>
+      <origin xyz="9.650038500203382e-18 0.014999999999999972 6.938893903907228e-18" rpy="0 0 0"/>
+      <mass value="1.8496126748009902"/>
+      <inertia ixx="0.001295" iyy="0.002312" izz="0.001295" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0.0 -0.1 -0.05" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find amr)/meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin xyz="-0.0 -0.1 -0.05" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find amr)/meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="base_footprint"></link>
+
+  <joint name="Rigid_1" type="fixed">
+    <origin xyz="0.06 0.0 0.105" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="lidar_1"/>
+  </joint>
+  <joint name="Revolute2" type="continuous">
+    <origin xyz="0.0 -0.1 0.05" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="right_wheel_1"/>
+    <axis xyz="0.0 1.0 0.0"/>
+  </joint>
+  <joint name="Revolute3" type="continuous">
+    <origin xyz="0.0 0.1 0.05" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="left_wheel_1"/>
+    <axis xyz="0.0 1.0 0.0"/>
+  </joint>
+  <joint name="base_footprint_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="base_footprint"/>
+  </joint>
+
+</robot>

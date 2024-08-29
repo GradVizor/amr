@@ -1,0 +1,34 @@
+<?xml version="1.0" ?>
+<robot name="amr" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+  <material name="silver">
+    <color rgba="0.700 0.700 0.700 1.000"/>
+  </material>
+  <gazebo>
+    <plugin name="control" filename="libgazebo_ros_control.so"/>
+  </gazebo>
+  <gazebo reference="base_link">
+    <material>Silver</material>
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <self_collide>true</self_collide>
+    <gravity>true</gravity>
+  </gazebo>
+  <gazebo reference="lidar_1">
+    <material>Gazebo/Blue</material>
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <self_collide>true</self_collide>
+  </gazebo>
+  <gazebo reference="right_wheel_1">
+    <material>Gazebo/Black</material>
+    <mu1>1500</mu1>
+    <mu2>1500</mu2>
+    <self_collide>true</self_collide>
+  </gazebo>
+  <gazebo reference="left_wheel_1">
+    <material>Gazebo/Black</material>
+    <mu1>1500</mu1>
+    <mu2>1500</mu2>
+    <self_collide>true</self_collide>
+  </gazebo>
+  </robot>

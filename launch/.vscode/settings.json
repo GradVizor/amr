@@ -1,0 +1,16 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/gradvizor/bot_ws/build/amr",
+        "/home/gradvizor/bot_ws/install/amr/lib/python3.10/site-packages",
+        "/home/gradvizor/microros_ws/install/micro_ros_msgs/local/lib/python3.10/dist-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/gradvizor/bot_ws/build/amr",
+        "/home/gradvizor/bot_ws/install/amr/lib/python3.10/site-packages",
+        "/home/gradvizor/microros_ws/install/micro_ros_msgs/local/lib/python3.10/dist-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ]
+}
