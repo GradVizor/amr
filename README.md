@@ -1,5 +1,4 @@
-# amr
-# Automated Mobile Robot
+# Automated Mobile Robot (AMR)
 This project is an implementation of an automated mobile robot designed to perform autonomous navigation tasks. It utilizes ROS2, Gazebo for simulation, and custom control algorithms for precise maneuvering in various environments.
 
 # Table of Contents
