@@ -27,6 +27,8 @@ This automated mobile robot is designed to autonomously navigate through a struc
 5) Remote control and telemetry data feedback via ROS2 topics.
 
 # Directory Structure
+
+```
 amr/
 
 config/
@@ -96,6 +98,7 @@ package.xml
 setup.py
 
 setup.cfg
+```
 
 # Getting Started
 1) Clone the repository:-
