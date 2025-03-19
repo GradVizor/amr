@@ -1,0 +1,12 @@
+AMR (automated Mobile Robot)
+
+1) To spawn robot in custom world (move to your workspace):- ros2 launch amr bot.launch.py world:=src/amr/worlds/world_1
+2) To launch navigation file :- ros2 launch amr navigation.launch.py 
+3) To save the map :- ros2 run nav2_map_server map_saver_cli 
+    (with name) :- ros2 run nav2_map_server map_saver_cli -f my_map
+
+4) To start micro_ros_agent (move to your microros workspace):-
+cd microros_ws
+source /opt/ros/humble/setup.bash
+source install/setup.bash
+ros2 run micro_ros_agent micro_ros_agent serial --dev /dev/ttyUSB0
